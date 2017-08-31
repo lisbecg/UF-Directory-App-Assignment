@@ -34,6 +34,12 @@
                       * include a way to remove individual listings
 
                 --> 
+                <tr ng-repeat="listing in listings">
+                  <td>{{listing.code}}</td>
+                  <td>{{listing.name}}</td>
+                  <td><button class="btn btn-success" ng-click="showDetails(listing)">Show Details</button></td>
+                  <td><button class="btn btn-danger" ng-click="deleteListing(listing)">Remove</button></td>
+                </tr>
             </table>
           </div>
           <!-- 
@@ -41,6 +47,55 @@
               Write an HTML form that adds new listings to the directory 
 
             -->
+          <div class="panel-group">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" href="#collapse1">Add New Listing</a>
+                </h4>
+              </div>
+              <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <div class = "container">
+                    <div class="form-group row">
+                      <label for="text-input-code-add" class="col-2 col-form-label">Code</label>
+                      <div class="col-10">
+                        <input class="form-control" type="text" id="text-input-code-add" ng-model="listing.code">
+                      </div>
+                     </div>
+                     <div class="form-group row">
+                      <label for="text-input-name-add" class="col-2 col-form-label">Name</label>
+                      <div class="col-10">
+                        <input class="form-control" type="text" id="text-input-name-add" ng-model="listing.name">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-form-label">Coordinates</label>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-6">
+                        <label for="text-input-latitude-add" class="col-sm-2 col-form-label">Latitude</label>
+                        <input class="form-control" type="text" id="text-input-latitude-add" ng-model="listing.coordinates.latitude">
+                      </div>
+                      <div class="col-sm-6">
+                          <label for="text-input-longitude-add" class="col-sm-2 col-form-label">Longitude</label>
+                          <input class="form-control" type="text" id="text-input-longitude-add" ng-model="listing.coordinates.longitude" >
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="text-input-address-add" class="col-2 col-form-label">Address</label>
+                      <div class="col-10">
+                        <input class="form-control" type="text" id="text-input-address" ng-model="listing.address">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <td><button class="btn btn-primary" ng-click="addListing()">Add</button></td>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="jumbotron">
@@ -51,14 +106,48 @@
                    * consider how to use ng-click within the the table to implement this feature
 
              -->
+            <div class = container>
+              <div class="form-group row">
+                <label for="text-input-code" class="col-2 col-form-label">Code</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value={{detailedInfo.code}} id="text-input-code" readonly="true">
+                </div>
+               </div>
+               <div class="form-group row">
+                <label for="text-input-name" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value={{detailedInfo.name}} id="text-input-name" readonly="true">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label">Coordinates</label>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="text-input-latitude" class="col-sm-2 col-form-label">Latitude</label>
+                  <input class="form-control" type="text" value={{detailedInfo.coordinates.latitude}} id="text-input-latitude" readonly="true">
+                </div>
+                <div class="col-sm-6">
+                    <label for="text-input-longitude" class="col-sm-2 col-form-label">Longitude</label>
+                    <input class="form-control" type="text" value={{detailedInfo.coordinates.longitude}} id="text-input-longitude" readonly="true">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="text-input-address" class="col-2 col-form-label">Address</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value={{detailedInfo.address}} id="text-input-address" readonly="true">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+<!--     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+ -->    <script src="app.js"></script>
     <script src="listingController.js"></script>
     <script src="listingFactory.js"></script>
   </body>
