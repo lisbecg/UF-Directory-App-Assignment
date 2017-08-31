@@ -56,40 +56,44 @@
               </div>
               <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
-                  <div class = "container">
-                    <div class="form-group row">
-                      <label for="text-input-code-add" class="col-2 col-form-label">Code</label>
-                      <div class="col-10">
-                        <input class="form-control" type="text" id="text-input-code-add" ng-model="listing.code">
+                  <div class="col-md-6">
+                    <div class="jumbotron">
+                      <div class = "container">
+                      <div class="form-group row">
+                        <label for="text-input-code-add" class="col-2 col-form-label">Code</label>
+                        <div class="col-10">
+                          <input class="form-control" type="text" id="text-input-code-add" ng-model="listing.code">
+                        </div>
+                       </div>
+                       <div class="form-group row">
+                        <label for="text-input-name-add" class="col-2 col-form-label">Name</label>
+                        <div class="col-10">
+                          <input class="form-control" type="text" id="text-input-name-add" ng-model="listing.name">
+                        </div>
                       </div>
-                     </div>
-                     <div class="form-group row">
-                      <label for="text-input-name-add" class="col-2 col-form-label">Name</label>
-                      <div class="col-10">
-                        <input class="form-control" type="text" id="text-input-name-add" ng-model="listing.name">
+                      <div class="form-group row">
+                        <label class="col-form-label">Coordinates</label>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-6">
+                          <label for="text-input-latitude-add" class="col-sm-2 col-form-label">Latitude</label>
+                          <input class="form-control" type="text" id="text-input-latitude-add" ng-model="listing.coordinates.latitude">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="text-input-longitude-add" class="col-sm-2 col-form-label">Longitude</label>
+                            <input class="form-control" type="text" id="text-input-longitude-add" ng-model="listing.coordinates.longitude" >
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="text-input-address-add" class="col-2 col-form-label">Address</label>
+                        <div class="col-10">
+                          <input class="form-control" type="text" id="text-input-address" ng-model="listing.address">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <td><button class="btn btn-primary" ng-click="addListing()">Add</button></td>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-form-label">Coordinates</label>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-6">
-                        <label for="text-input-latitude-add" class="col-sm-2 col-form-label">Latitude</label>
-                        <input class="form-control" type="text" id="text-input-latitude-add" ng-model="listing.coordinates.latitude">
-                      </div>
-                      <div class="col-sm-6">
-                          <label for="text-input-longitude-add" class="col-sm-2 col-form-label">Longitude</label>
-                          <input class="form-control" type="text" id="text-input-longitude-add" ng-model="listing.coordinates.longitude" >
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="text-input-address-add" class="col-2 col-form-label">Address</label>
-                      <div class="col-10">
-                        <input class="form-control" type="text" id="text-input-address" ng-model="listing.address">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <td><button class="btn btn-primary" ng-click="addListing()">Add</button></td>
                     </div>
                   </div>
                 </div>

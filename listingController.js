@@ -15,6 +15,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       for(i in $scope.listings){
         if(index.code == $scope.listings[i].code){
           $scope.listings.splice(i, 1);
+          // Don't show detailed info of a deleted (non-existing) listing in the list.
           if($scope.detailedInfo == index){
             $scope.detailedInfo = undefined;
           }
