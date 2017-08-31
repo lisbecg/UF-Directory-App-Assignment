@@ -15,6 +15,9 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       for(i in $scope.listings){
         if(index.code == $scope.listings[i].code){
           $scope.listings.splice(i, 1);
+          if($scope.detailedInfo == index){
+            $scope.detailedInfo = undefined;
+          }
         }
       }
       return;
