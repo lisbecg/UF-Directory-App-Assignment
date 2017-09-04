@@ -16,27 +16,12 @@ mongoose.connect(config.db.uri);
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
  */
- var parsedData = JSON.parse(jsonListings.entries);
- console.log(parsedData[0]);
- var currentListing;
+ var entry, currentListing;
 
- for(var entry in jsonListings.entries){
-  if(!entry.code || !entry.name){
-    console.log(entry);
-  }
-  else{
-    currentListing = new Listing({
-      code: entry.code,
-      name: entry.name,
-      coordinates: entry.coordinates,
-      address: entry.address
-    });
+ for(var i in jsonListings.entries){
+  entry = jsonListings.entries[i];
 
-    currentListing.save(function(err){
-      if(err) throw err;
-    });
-  }
-  /*currentListing = new Listing({
+  currentListing = new Listing({
     code: entry.code,
     name: entry.name,
     coordinates: entry.coordinates,
@@ -45,10 +30,12 @@ mongoose.connect(config.db.uri);
 
   currentListing.save(function(err){
     if(err) throw err;
-  });*/
+  });
 
  }
 
+//Disconnect from database.
+mongoose.disconnect();
 /* 
   Once you've written + run the script, check out your MongoLab database to ensure that 
   it saved everything correctly. 
