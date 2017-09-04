@@ -16,22 +16,37 @@ mongoose.connect(config.db.uri);
   Instantiate a mongoose model for each listing object in the JSON file, 
   and then save it to your Mongo database 
  */
- for(entry in jsonListings.entries){
+ var parsedData = JSON.parse(jsonListings.entries);
+ console.log(parsedData[0]);
+ var currentListing;
 
-  var currentListing = new Listing({
-    code: request.code,
-    name: request.name,
-    coordinates: {
-      latitude: request.coordinates.latitude,
-      longitude: request.coordinates.longitude,
-    },
-    address: request.address
+ for(var entry in jsonListings.entries){
+  if(!entry.code || !entry.name){
+    console.log(entry);
+  }
+  else{
+    currentListing = new Listing({
+      code: entry.code,
+      name: entry.name,
+      coordinates: entry.coordinates,
+      address: entry.address
+    });
+
+    currentListing.save(function(err){
+      if(err) throw err;
+    });
+  }
+  /*currentListing = new Listing({
+    code: entry.code,
+    name: entry.name,
+    coordinates: entry.coordinates,
+    address: entry.address
   });
 
   currentListing.save(function(err){
     if(err) throw err;
-  });
-  
+  });*/
+
  }
 
 /* 

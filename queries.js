@@ -6,7 +6,7 @@ var findLibraryWest = function() {
     then log it to the console. 
    */
    Listing.find({ name: 'Library West' }, function(err, libWestListing){
-    if (err) throw err;
+    if(err) throw err;
 
     console.log(libWestListing);
    });
@@ -18,7 +18,7 @@ var removeCable = function() {
     and remove this listing from your database and log the document to the console. 
    */
    Listing.find({ code: 'CABL' }, function(err, cableListing){
-    if (err) throw err;
+    if(err) throw err;
     
     //Delete this document.
     cableListing.remove(function(err){
@@ -35,7 +35,7 @@ var updatePhelpsLab = function() {
     log the updated document to the console. 
    */
    Listing.findOneAndUpdate({ name: 'Phelps Laboratory' }, { address: 'Gainesville, FL 32603' }, function(err, phelpsListing) {
-    if (err) throw err;
+    if(err) throw err;
 
     // Log updated listing to the console.
     console.log(phelpsListing);
@@ -46,7 +46,7 @@ var retrieveAllListings = function() {
     Retrieve all listings in the database, and log them to the console. 
    */
    Listing.find({}, function(err, listings){
-    if (err) throw err;
+    if(err) throw err;
 
     console.log(listings);
    });

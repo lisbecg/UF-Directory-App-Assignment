@@ -11,12 +11,19 @@ var listingSchema = new Schema({
   	longitude: Number
   },
   address: String
-  //created_at: Date
-  //updated_at: Date
 });
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 listingSchema.pre('save', function(next) {
+  if(!this.code){
+    var err = new Error('Code is undefined.');
+    next(err);
+  }
+  if(!this.name){
+    var err = new Error('Name is undefined.');
+    next(err);
+  }
+  
   //Get current date.
 	var currentDate = new Date();
   //Add created_at property if not already there.
