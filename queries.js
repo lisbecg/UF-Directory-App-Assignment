@@ -1,3 +1,18 @@
+'use strict';
+/* 
+  Import modules/files you may need to correctly run the script. 
+  Make sure to save your DB's uri in the config file, then import it with a require statement!
+ */
+var fs = require('fs'),
+    mongoose = require('mongoose'), 
+    Schema = mongoose.Schema, 
+    Listing = require('./ListingSchema.js'), 
+    config = require('./config'),
+    jsonListings = require('./listings.json');
+
+/* Connect to your database */
+mongoose.connect(config.db.uri);
+
 /* Fill out these functions using Mongoose queries*/
 
 var findLibraryWest = function() {
@@ -21,10 +36,10 @@ var removeCable = function() {
     if(err) throw err;
     
     //Delete this document.
-    cableListing.remove(function(err){
+    Listing.remove({ id: cableListing.id}, function(err){
       if(err) throw err;
       //Log this document to the console.
-      console.log(listing);
+      console.log(cableListing);
     });
 
    });
@@ -56,3 +71,6 @@ findLibraryWest();
 removeCable();
 updatePhelpsLab();
 retrieveAllListings();
+
+//Disconnect from database.
+//mongoose.disconnect();

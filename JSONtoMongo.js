@@ -35,7 +35,7 @@ mongoose.connect(config.db.uri);
  }
 
 //Disconnect from database.
-mongoose.disconnect();
+//mongoose.disconnect();
 /* 
   Once you've written + run the script, check out your MongoLab database to ensure that 
   it saved everything correctly. 
