@@ -37,8 +37,14 @@
                 <tr ng-repeat="listing in listings | filter:searchBar">
                   <td>{{listing.code}}</td>
                   <td>{{listing.name}}</td>
-                  <td><button class="btn btn-success" ng-click="showDetails(listing)">Show Details</button></td>
-                  <td><button class="btn btn-danger" ng-click="deleteListing(listing)">Remove</button></td>
+                  <td><a href="#" class="btn btn-info btn-sm" ng-click="showDetails(listing)">
+                        <span class="glyphicon glyphicon-pencil"></span> Show Details 
+                      </a>
+                  </td>
+                  <td><a href="#" class="btn btn-danger btn-sm" ng-click="deleteListing(listing)">
+                        <span class="glyphicon glyphicon-minus"></span> Remove 
+                      </a>
+                  </td>
                 </tr>
             </table>
           </div>
@@ -91,7 +97,10 @@
                           </div>
                         </div>
                         <div class="form-group row">
-                          <td><button class="btn btn-primary" ng-click="addListing()">Add</button></td>
+                          <td><a href="#" class="btn btn-info" ng-click="addListing()">
+                                <span class="glyphicon glyphicon-plus"></span> Add 
+                              </a>
+                          </td>
                         </div>
                       </div>
                     </div>
