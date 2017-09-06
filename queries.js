@@ -46,10 +46,13 @@ var updatePhelpsLab = function() {
     Phelps Laboratory's address is incorrect. Find the listing, update it, and then 
     log the updated document to the console. 
    */
-   Listing.findOneAndUpdate({ name: 'Phelps Laboratory' }, { address: 'Gainesville, FL 32603' }, function(err, phelpsListing) {
+   var newAddress = 'Gainesville, FL 32603';
+   
+   Listing.findOneAndUpdate({ name: 'Phelps Laboratory' }, { address: newAddress }, function(err, phelpsListing) {
     if(err) throw err;
 
     // Log updated listing to the console.
+    phelpsListing.address = newAddress;
     console.log(phelpsListing);
   });
 };
